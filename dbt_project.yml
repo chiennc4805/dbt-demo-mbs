@@ -14,12 +14,14 @@ test-paths: ["tests"]
 
 models:
   msb_demo:
-    silver:
+    staging:
       +materialized: ephemeral
+    silver:
+      +materialized: view
+      +database:
     gold:
       +materialized: table
       +database: hive_catalog
       +schema: gold
       +file_format: delta
       +location_root: "s3a://warehouse/gold"
-

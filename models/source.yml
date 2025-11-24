@@ -1,16 +1,16 @@
 version: 2
 sources:
-  - name: bronze
-    schema: bronze
-    tables:
-      - name: customer_raw
   - name: silver
-    schema: silver
+    schema: hive_catalog.silver
     tables:
       - name: fact_t_back_advance_withdraw
       - name: fact_t_back_deal_history
       - name: fact_t_margin_extra_balance_his
       - name: fact_t_tlo_debit_balance_history
       - name: fact_v_t_erc_monthly_detail
-      - name: t_back_account_scd2
-      - name: t_front_deal_scd2
+  - name: streaming
+    schema: default_catalog.mbs_realtime_db
+    tables:
+      - name: t_back_account
+      - name: t_front_deal
+
